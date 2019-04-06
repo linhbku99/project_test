@@ -1,3 +1,4 @@
+Local ---------------------------------------------
 git config --global user.name "FIRST_NAME LAST_NAME"
 Set your email address: git config --global user.email "MY_NAME@example.com"
 git init
@@ -8,15 +9,13 @@ git stash
 git log
 git reset <commit code>
 git reflog
+
 ----------------------------------------------------
-Github
+Github ---------------------------------------------
 New SSH key
 New a project
 git remote add origin <link>
 git remote -v
 git push
 git remote rm origin (delete link *)
-
-sua lai lan 1
-sua lan 2
-test lan 4
+git pull (*sync)
