@@ -31,3 +31,4 @@ int main(int argc, char *argv[])
     printf("main : done with both ( counter = %d)\n", counter);
     return 0;
 }
+// sua lan 2
