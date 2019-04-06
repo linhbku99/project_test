@@ -1,0 +1,18 @@
+git config --global user.name "FIRST_NAME LAST_NAME"
+Set your email address: git config --global user.email "MY_NAME@example.com"
+git init
+git status
+git add <filename>
+git commit -m "comment"
+git stash
+git log
+git reset <commit code>
+git reflog
+----------------------------------------------------
+Github
+New SSH key
+New a project
+git remote add origin <link>
+git remote -v
+git push
+git remote rm origin (delete link *)
