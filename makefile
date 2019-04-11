@@ -1,6 +1,4 @@
-all: test1.c test2.c test3.c
-	gcc -o test1 test1.c -lpthread
-	gcc -o test2 test2.c -lpthread
-	gcc -o test3 test3.c -lpthread
+all: lab6.c
+	gcc -o lab6 lab6.c -lpthread
 clearn:
-	rm -f test1 test2 test3
+	rm -f lab6
