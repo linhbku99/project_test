@@ -28,23 +28,26 @@ void *runner()
 int main(int argc, const char *argv[])
 {
     long totalpoints = atol(argv[1]);
-    points_per_thread = totalpoints / 4;
-    double sum_incircle[4];
+    double thread_count = 4;
+    points_per_thread = totalpoints / thread_count;
     clock_t start = clock();
     srand((unsigned)time(NULL));
-    pthread_t threads[4];
+    //pthread_t threads[(int)thread_count];
+    pthread_t *threads = malloc(thread_count * sizeof(pthread_t));
+    pthread_attr_t attr;
+    pthread_attr_init(&attr);
     int i;
-    for (i = 0; i < 4; i++)
+    for (i = 0; i < (int)thread_count; i++)
     {
-        pthread_create(&threads[i], NULL, runner, NULL);
-        //pthread_join(threads[i], NULL);
+        pthread_create(&threads[i], &attr, runner, NULL);
     }
-    for (i = 3; i >= 0; i--)
+    for (i = (int)thread_count - 1; i >= 0; i--)
     {
         pthread_join(threads[i], NULL);
     }
     pthread_mutex_destroy(&mutex);
-    printf("for %d Points & 4 thread Pi = %f\n", (int)totalpoints, (4. * (double)incircle) / ((double)totalpoints));
+    free(threads);
+    printf("for %d Points & %d thread Pi = %f\n", (int)totalpoints, (int)thread_count, (4. * (double)incircle) / ((double)totalpoints));
     printf("Time: %f sec\n", (double)(clock() - start) / CLOCKS_PER_SEC);
     return 0;
 }
